@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['18.218.116.164']
 
 INSTALLED_APPS = [
     'djangoApp',
-    'restframework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

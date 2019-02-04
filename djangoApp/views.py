@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
-from .models import StudentInfo, CourseInfo
+from .models import StudentInfo, Course
 from .serializer import StudentInfoSerializer, CourseSerializer
 from django.core.serializers import serialize
 from rest_framework.renderers import JSONRenderer
