@@ -1,11 +1,14 @@
 from django.urls import path
 from . import views
-
+# from core import views as myapp_views
 from rest_framework import routers
 
-router = routers.SimpleRouter()
-router.register(r'students', views.StudentInfoViewSet, basename='students')
+router = routers.DefaultRouter(trailing_slash=False)
+# router = routers.SimpleRouter()
+router.register(r'students', views.StudentInfoViewSet)
+router.register(r'courses', views.CourseViewSet)
 
+"""
 urlpatterns = [
     #path('$/', views.StudentInfo, name='studentInfo'),
     path('', views.index, name='index'),
@@ -13,3 +16,4 @@ urlpatterns = [
     #path('djangoApp/',views.StudentInfoViewSet.as_view({'get': 'list', 'post':'retrieve'})),
 ]
 urlpatterns += router.urls
+"""

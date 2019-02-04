@@ -1,23 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
-from .models import StudentInfo
-from .serializer import StudentInfoSerializer
+from .models import StudentInfo, CourseInfo
+from .serializer import StudentInfoSerializer, CourseSerializer
 from django.core.serializers import serialize
 from rest_framework.renderers import JSONRenderer
 from rest_framework import viewsets
 from rest_framework.decorators import action
 
 
-class StudentInfoViewSet(viewsets.ViewSet):
-    #serializer_class = StudentInfoSerializer
-    #queryset = StudentInfo.objects.all()
+class StudentInfoViewSet(viewsets.ModelViewSet):
+    queryset = StudentInfo.objects.all()
+    serializer_class = StudentInfoSerializer
 
+
+"""
     def list(self, request):
         print(request)
         queryset = StudentInfo.objects.all()
         serializer = StudentInfoSerializer(queryset, many=True)
         return HttpResponse(serializer.data)
-    
+
     def retrieve(self, request, pk=None):
         #queryset = StudentInfo.objects.get(pk=int(request.data['STUDENT_ID']))
         queryset = StudentInfo.objects.all()
@@ -31,7 +33,10 @@ class StudentInfoViewSet(viewsets.ViewSet):
                 REGISTERED_COURSES='{}'.join(request.data['REGISTERED_COURSES']))
         query_set.save()
         return HttpResponse("Testing")
-
+"""
+class CourseViewSet(viewsets.ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
 
 
 # Create your views here.
