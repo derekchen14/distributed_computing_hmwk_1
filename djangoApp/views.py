@@ -7,6 +7,15 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework import viewsets
 from rest_framework.decorators import action
 
+from rest_framework import generics
+
+class StudentList(generics.ListCreateAPIView):
+    queryset = StudentInfo.objects.all()
+    serializer_class = StudentInfoSerializer
+
+class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = StudentInfo.objects.all()
+    serializer_class = StudentInfoSerializer
 
 class StudentInfoViewSet(viewsets.ModelViewSet):
     queryset = StudentInfo.objects.all()

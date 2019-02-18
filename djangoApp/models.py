@@ -8,6 +8,9 @@ class StudentInfo(models.Model):
     REGISTERED_COURSES = models.CharField(max_length=500)
     objects = models.Manager()
 
+    def __str__(self):
+      return self.STUDENT_NAME
+
 class Course(models.Model):
     COURSE_ID = models.IntegerField(primary_key=True, null=False)
     COURSE_NAME = models.CharField(null=False, max_length=30)
