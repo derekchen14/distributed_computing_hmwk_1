@@ -1,7 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from djangoApp import views
 from rest_framework import routers
-
 """
 # First Method
 router = routers.DefaultRouter(trailing_slash=False)
@@ -19,4 +18,5 @@ urlpatterns = [
     # path('djangoApp/',views.StudentInfoViewSet.as_view({'get': 'list', 'post':'retrieve'})),
     path('djangoApp/',views.StudentList.as_view() ),
     path('djangoApp/<int:pk>',views.StudentDetail.as_view() ),
+    path('', views.StudentList.as_view()),
 ]
