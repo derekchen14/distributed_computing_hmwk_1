@@ -17,11 +17,9 @@ def make_request(action):
   elif action == "update":
     student_id = 8
     url = url + str(student_id)
-    payload = {
-    "STUDENT_ID": 8,
-    "STUDENT_NAME": "Ishan Ishikawa",
-    "STUDENT_YEAR": 2019,
-    "REGISTERED_COURSES": "Artificial Intelligence"}
+    payload = {"STUDENT_ID": 8, "STUDENT_YEAR": 2019,
+               "STUDENT_NAME": "Ishan Ishikawa",
+               "REGISTERED_COURSES": "Artificial Intelligence"}
     result = requests.put(url, data=payload)
   elif action == "destroy":
     student_id = 8
